@@ -1,4 +1,4 @@
-#N canvas 630 450 1408 667 10;
+#N canvas 1280 25 1280 667 10;
 #X obj 88 68 soundfiler;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array sound 74880 float 2;
@@ -28,6 +28,7 @@
 #X floatatom 395 232 5 0 0 0 - - -;
 #X floatatom 394 272 5 0 0 0 - - -;
 #X obj 503 244 grapher~;
+#X obj 239 341 grapher~;
 #X connect 0 0 2 0;
 #X connect 3 0 6 0;
 #X connect 4 0 3 0;
