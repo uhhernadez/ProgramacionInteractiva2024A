@@ -1,0 +1,11 @@
+#N canvas 0 25 899 667 10;
+#X obj 149 62 adc~;
+#X obj 150 125 grapher~;
+#X obj 216 28 osc~ 200;
+#X obj 263 62 snapshot~;
+#X obj 264 91 print;
+#X obj 283 30 metro 100;
+#X connect 2 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 5 0 3 0;
