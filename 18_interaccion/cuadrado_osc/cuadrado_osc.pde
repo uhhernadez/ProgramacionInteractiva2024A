@@ -1,40 +1,32 @@
 import oscP5.*;
 import netP5.*;
 import java.util.Queue;
+import java.util.LinkedList;
 
 OscP5 oscP5;
 NetAddress myBroadcastLocation; 
-PVector position;
+PVector bin1;
 Queue<PVector> points;
 
 void setup() {
   size(500, 500);
   oscP5 = new OscP5(this,12000);
   myBroadcastLocation = new NetAddress("127.0.0.1",32000);
-  position = new PVector(0,0);
-  points = new ArrayList<PVector>();
+  bin1 = new PVector(0,0);
+  points = new LinkedList<PVector>();
 }
 
 void draw() {
   background(0);
   translate(width/2, height/2);
   rectMode(CENTER);
-  rect(position.x, position.y,20,20);
+  rect(bin1.x, bin1.y,20,20*bin1.z);
 }
 
 void oscEvent(OscMessage msg) {
-  try {
-  if(msg.checkAddrPattern("/cuadrado/x")==true) {
+  if(msg.checkAddrPattern("/bin/b1")==true) {
     float x = msg.get(0).floatValue();
     println("x = " + str(x));  
-    position.x = x;
-  }
-  if(msg.checkAddrPattern("/cuadrado/y")==true) {
-    float y = msg.get(0).floatValue();
-    println("y = " + str(y));
-    position.y = y;
-  }
-  } catch (Exception e) {
-  
+    bin1.z = x;
   }
 }
